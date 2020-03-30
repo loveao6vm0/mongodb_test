@@ -10,7 +10,9 @@ module.exports = function(req, res, next) {
         Person.find({}, function(err, dataall) {
             if(err) throw err;
 
-            res.json({data_content : dataall});
+            // res.json({data_content : dataall});
+            res.send("Thank for use");
+            
         });
     });
 };
