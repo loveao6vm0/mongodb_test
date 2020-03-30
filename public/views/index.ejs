@@ -1,0 +1,30 @@
+<html>
+    <head>
+		<!-- <link href="assets/style.css" type="text/css" rel="stylesheet" /> -->
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js" ></script>
+	</head>
+    <body>
+        <h1>A1</h1>
+        <h2></h2>
+        <form method="POST" action="/person">
+            First name : <input type="text" id="firstname" name="firstname" /><br />
+            Last name : <input type="text" id="lastname" name="lastname"/><br />
+            Data content : <input type="text" id="Datainput" name="Datainput"/><br />
+            <input type="submit" value="submit" />
+        </form>
+        <!-- <script>
+            $.ajax({
+                type: 'POST',
+                url: "/personjson",
+                data: JSON.stringify({ firstname : 'Jane', lastname: 'Doe' }),
+                dataType: 'json',
+                contentType: 'application/json'
+                
+            }).done(function(data) {
+                $("h2").html(data.firstname + " " + data.lastname);
+
+            });
+            //done 接收後台回傳物件
+        </script> -->
+    </body>
+</html>
