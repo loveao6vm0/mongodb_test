@@ -24,3 +24,16 @@ app.use(bodyParser.json()); //json
 app.use('/', routers);
 
 app.listen(port);
+
+/*
+var express = require('express'),
+    create = require('../controllers/create'),
+    readall = require('../controllers/readall'),
+    router = express.Router();
+
+router.route('/person')
+    .post(create)
+    .get(readall);
+
+module.exports = router;
+*/

@@ -13,7 +13,7 @@
 // module.exports = router;
 
 var express = require('express'),
-    index = require('../controllers/index'),
+    index = require('../controllers/index')
     create = require('../controllers/create'),
     read = require('../controllers/read'),
     readall = require('../controllers/readall'),
@@ -26,7 +26,7 @@ router.route('/person')
     .post(create)
     .get(readall);
 //代表前端對於新增(POST)或讀取全部(readall)的要求
-router.route('/person/:id')
+router.route('/person/:name')
     .get(read)
     .put(update)
     .delete(del);
