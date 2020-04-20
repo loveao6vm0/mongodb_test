@@ -27,7 +27,7 @@ router.route('/person')
     .get(readall);
 //代表前端對於新增(POST)或讀取全部(readall)的要求
 router.route('/person/:name')
-    .get(read)
+    .post(read)
     .put(update)
     .delete(del);
 

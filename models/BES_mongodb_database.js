@@ -1,56 +1,57 @@
 //var mom = require('moment');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin:admin@beseric-cy86d.mongodb.net/test123?retryWrites=true&w=majority');
+
+//mongoose.connect('mongodb+srv://admin:admin@beseric-cy86d.mongodb.net/test123?retryWrites=true&w=majority');
 
 var Schema = mongoose.Schema;
 
 var personSchema = new Schema( {
-    Accel_LX    : Buffer,
-    Accle_LY    : Buffer,
-    Accel_LZ    : Buffer,
-    Gyro_LX     : Buffer,
-    Gyro_LY     : Buffer,
-    Gyro_LZ     : Buffer,
-    Mag_LX      : Buffer,
-    Mag_LY      : Buffer,
-    Mag_LZ      : Buffer,
-    Foot_LP1    : Buffer,
-    Foot_LP2    : Buffer,
-    Foot_LP3    : Buffer,
-    Foot_LP4    : Buffer,
-    Foot_LP5    : Buffer,
-    Foot_LP6    : Buffer,
-    Foot_LP7    : Buffer,
-    Foot_LP8    : Buffer,
-    Foot_LP9    : Buffer,
-    Foot_LP10   : Buffer,
-    Foot_LP11   : Buffer,
-    Accel_RX    : Buffer,
-    Accle_RY    : Buffer,
-    Accel_RZ    : Buffer,
-    Gyro_RX     : Buffer,
-    Gyro_RY     : Buffer,
-    Gyro_RZ     : Buffer,
-    Mag_RX      : Buffer,
-    Mag_RY      : Buffer,
-    Mag_RZ      : Buffer,
-    Foot_RP1    : Buffer,
-    Foot_RP2    : Buffer,
-    Foot_RP3    : Buffer,
-    Foot_RP4    : Buffer,
-    Foot_RP5    : Buffer,
-    Foot_RP6    : Buffer,
-    Foot_RP7    : Buffer,
-    Foot_RP8    : Buffer,
-    Foot_RP9    : Buffer,
-    Foot_RP10   : Buffer,
-    Foot_RP11   : Buffer,
+    Accel_LX    : [Number],
+    Accel_LY    : [Number],
+    Accel_LZ    : [Number],
+    Gyro_LX     : [Number],
+    Gyro_LY     : [Number],
+    Gyro_LZ     : [Number],
+    Mag_LX      : [Number],
+    Mag_LY      : [Number],
+    Mag_LZ      : [Number],
+    Foot_LP1    : [Number],
+    Foot_LP2    : [Number],
+    Foot_LP3    : [Number],
+    Foot_LP4    : [Number],
+    Foot_LP5    : [Number],
+    Foot_LP6    : [Number],
+    Foot_LP7    : [Number],
+    Foot_LP8    : [Number],
+    Foot_LP9    : [Number],
+    Foot_LP10   : [Number],
+    Foot_LP11   : [Number],
+    Accel_RX    : [Number],
+    Accel_RY    : [Number],
+    Accel_RZ    : [Number],
+    Gyro_RX     : [Number],
+    Gyro_RY     : [Number],
+    Gyro_RZ     : [Number],
+    Mag_RX      : [Number],
+    Mag_RY      : [Number],
+    Mag_RZ      : [Number],
+    Foot_RP1    : [Number],
+    Foot_RP2    : [Number],
+    Foot_RP3    : [Number],
+    Foot_RP4    : [Number],
+    Foot_RP5    : [Number],
+    Foot_RP6    : [Number],
+    Foot_RP7    : [Number],
+    Foot_RP8    : [Number],
+    Foot_RP9    : [Number],
+    Foot_RP10   : [Number],
+    Foot_RP11   : [Number],
     
 }, {
     timestamps : {createdAt: 'createdAt'}
 });
-module.exports = mongoose.model('Person', personSchema, "1");
-
+module.exports = personSchema;
+//module.exports = mongoose.model("personSchema", personSchema, "1");
 /*
 var personSchema = new Schema( {
     firstname : String,
