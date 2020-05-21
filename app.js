@@ -4,6 +4,23 @@
 整個程式只有一個router，依據url呼叫不同的controller
 */
 /* 1 MVC*/
+var crypto = require("crypto");
+var Q = [30, 20, 10, 0];
+hashlist = ["None"];
+timelist = ["None"];
+
+var events = require('events');
+
+var eventEmitter = new events.EventEmitter();
+
+var eventHandler = function() {
+    if(Q[0] > 0){
+        Q[0] -= 1;
+        console.log(Q[0]);
+    }
+};
+eventEmitter.on("substract", eventHandler);
+//
 
 var express = require('express');
 var app = express();
@@ -23,17 +40,47 @@ app.use(bodyParser.json()); //json
 //router set
 app.use('/', routers);
 
+//
+app.on("AAA",eventHandler);
+
+// var hashans = crypto.createHash('sha1').update("ericliao1126").digest("hex");
+// var hashans2 = crypto.createHash('sha1').update("ericliao").digest("hex");
+// var hmacans1 = crypto.createHmac("sha1","BES").update("ericliao1126").digest("hex");
+// var hmacans2 = crypto.createHmac("sha1","BES666").update("ericliao1126").digest("hex");
+
+// var ddate1 = new Date(2012,12,25,8,0,0);
+// var ddate2 = new Date(2012,12,26,8,0,0);
+// console.log(ddate2 - ddate1);
+
+function em() {
+    //setTimeout(2000);
+    if(Q[0] > 0){
+        Q[0] -= 1;
+        console.log(Q[0]);
+        //var 
+        //console.log(hashans);
+        //console.log(hashans2);
+        // console.log(hmacans1);
+        // console.log(hmacans2);
+
+    }
+};
+
+
+var inttime = function() {
+    setInterval(em,5000);
+}
+
+inttime();
+
 app.listen(port);
 
+
 /*
-var express = require('express'),
-    create = require('../controllers/create'),
-    readall = require('../controllers/readall'),
-    router = express.Router();
-
-router.route('/person')
-    .post(create)
-    .get(readall);
-
-module.exports = router;
+    var pos = Q.indexOf(req.body.Token);
+    if(pos = -1){
+        console.log(pos);
+        Q.push(req.body.Token);
+        console.log(Q[4]);
+    }
 */

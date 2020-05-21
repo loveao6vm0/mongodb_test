@@ -19,6 +19,7 @@ var express = require('express'),
     readall = require('../controllers/readall'),
     update = require('../controllers/update'),
     del = require('../controllers/del'),
+    userpass = require('../controllers/userpass'),
     router = express.Router();
 
 router.route('/').get(index);
@@ -30,5 +31,8 @@ router.route('/person/:name')
     .post(read)
     .put(update)
     .delete(del);
+
+router.route('/login')
+    .post(userpass);
 
 module.exports = router;
