@@ -6,8 +6,8 @@
 /* 1 MVC*/
 var crypto = require("crypto");
 var Q = [30, 20, 10, 0];
-hashlist = ["None"];
-timelist = ["None"];
+hashlist = [];
+timelist = [];
 
 var events = require('events');
 
@@ -53,22 +53,35 @@ app.on("AAA",eventHandler);
 // console.log(ddate2 - ddate1);
 
 function em() {
-    //setTimeout(2000);
-    if(Q[0] > 0){
-        Q[0] -= 1;
-        console.log(Q[0]);
-        //var 
-        //console.log(hashans);
-        //console.log(hashans2);
+        if(Q[0] > 0){
+            Q[0] -= 1;
+            console.log(Q[0]);
+            //console.log(hashlist.indexof());
+        }
+        let i;
+        let currentdate = new Date();
+        if( timelist.length > 0) {
+            for(i=0;i<timelist.length;i++) {
+                console.log( (currentdate - timelist[i])/1000);
+                if( (currentdate - timelist[i])/1000> (1800) ){
+                    timelist.splice(i,1);
+                    hashlist.splice(i,1);
+                    console.log(timelist);
+
+                }
+            } 
+        }
+        // console.log(hashans);
+        // console.log(hashans2);
         // console.log(hmacans1);
         // console.log(hmacans2);
 
-    }
+
 };
 
 
 var inttime = function() {
-    setInterval(em,5000);
+    setInterval(em,10000);
 }
 
 inttime();

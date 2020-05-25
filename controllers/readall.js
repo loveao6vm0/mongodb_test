@@ -5,7 +5,8 @@ var connData = conn2.model('personSchema', personSchema, '1');
 
 module.exports = function(req, res, next) {
     var pos = hashlist.indexOf(req.body.Tokenhash);
-    console.log(pos);
+    
+    //console.log(pos);
     if(pos != -1) {
         var datenew = new Date();
         timelist[pos] = datenew;
@@ -14,5 +15,8 @@ module.exports = function(req, res, next) {
             if(err) throw err;
             res.json({userinfos: users});
         });
+    }
+    else {
+        res.end('Unknown user');
     }
 };

@@ -23,7 +23,7 @@ module.exports = function(req, res, next) {
         if(err) throw err;
         //res.json( {Tokenhash : logindata });
         if (logindata.password == req.body.password) {
-            hmacans1 = crypto.createHmac("sha1","BES").update("ericliao1126").digest("hex");
+            hmacans1 = crypto.createHmac("sha1","BES").update( String(req.body.user) ).digest("hex");
             //console.log(hmacans1);
             
             //
@@ -38,8 +38,9 @@ module.exports = function(req, res, next) {
                 res.json( {Tokenhash : hmacans1 });
             }
             else {
-                
-                res.end("Already login user");
+                var hmacAgain = hashlist[pos];
+                res.json( {Tokenhash : hmacAgain, login_State : "Again" });
+                //res.end("Already login user");
             }
         }
 
